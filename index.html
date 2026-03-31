@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AtlasIQ</title>
+</head>
+<body>
+    <h1>AtlasIQ</h1>
+    <div class="Search_country">
+        <input type="text" id="country" placeholder="Search Country...">
+        <select id="region">
+            <option value="">All Regions</option>
+            <option value="Asia">Asia</option>
+            <option value="Americas">Americas</option>
+            <option value="Africa">Africa</option>
+            <option value="Europe">Europe</option>
+            <option value="Oceania">Oceania</option>
+        </select>
+        <select id="sortPopulation">
+            <option value="">Sort by Population</option>
+            <option value="asc">Low to High</option>
+            <option value="desc">High to Low</option>
+        </select>
+    </div>
+    <div id="loader" class="loader">Loading countries...</div>
+    <div id="countriesContainer" class="countries"></div>
+    <script src="script.js"></script>
+</body>
+</html>
