@@ -4,9 +4,17 @@
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <label class="switch">
+  <input type="checkbox" id="themeToggle">
+  <span class="slider"></span>
+</label>
     <title>AtlasIQ</title>
 </head>
 <body>
+   <div class="top-bar">
+  <button onclick="goBack()">⬅ Back</button>
+  <button onclick="showFavorites()">❤️ Favorites</button>
+</div>
     <h1>AtlasIQ</h1>
     <div class="Search_country">
         <input type="text" id="country" placeholder="Search Country...">
@@ -23,9 +31,16 @@
             <option value="asc">Low to High</option>
             <option value="desc">High to Low</option>
         </select>
+        <select id="sortArea">
+            <option value="">Sort by Area</option>
+            <option value="asc">Low to High</option>
+            <option value="desc">High to Low</option>
+        </select>
+
     </div>
     <div id="loader" class="loader">Loading countries...</div>
     <div id="countriesContainer" class="countries"></div>
+    <div id="citiesContainer" class="countries"></div>
     <script src="script.js"></script>
 </body>
 </html>
