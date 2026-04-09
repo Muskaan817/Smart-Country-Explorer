@@ -64,27 +64,49 @@ function getCityDetails(city) {
   fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${city}`)
     .then(res => res.json())
     .then(data => {
+      if (!data.extract || data.title.toLowerCase() !== city.toLowerCase()) {
+    return;
+  }
 
-      const card = document.createElement("div");
-      card.classList.add("card");
+  const card = document.createElement("div");
+  card.classList.add("card");
 
-      const image = data.thumbnail?.source || "https://placehold.co/300x200?text=No+Image";
+  // ✅ FIX TITLE
+  const title = data.title && data.title !== "undefined"
+    ? data.title
+    : city;
 
-      card.innerHTML = `
+  // ✅ FIX DESCRIPTION
+  const description = data.extract && data.extract.length > 20
+    ? data.extract.slice(0, 120) + "..."
+    : "Details not available for this city.";
 
-        <img src="${image}" alt="city">
-        <h3>${data.title}</h3>
-        <p>${data.extract?.slice(0, 120) || "No description"}...</p>
-      `;
+  // ✅ IMAGE CHECK
+  const hasImage = data.thumbnail?.source;
 
-    
-      card.addEventListener("click", () => {
-        const query = encodeURIComponent(data.title);
-        window.open(`https://www.google.com/search?q=${query}`, "_blank");
-      });
+  const imageHTML = hasImage
+    ? `<img src="${data.thumbnail.source}" alt="city">`
+    : `
+      <div class="no-image">
+        <img src="https://res.cloudinary.com/aenetworks/image/upload/c_fill,ar_2,w_3840,h_1920,g_auto/dpr_auto/f_auto/q_auto:eco/v1/what-is-earth-really-made-ofs-featured-photo?_a=BAVMn6DY0">
+        <div class="overlay">🌍 Image unavailable</div>
+      </div>
+    `;
 
-      container.appendChild(card);
-    })
+  // ✅ FINAL UI
+  card.innerHTML = `
+    ${imageHTML}
+    <h3>${title}</h3>
+    <p>${description}</p>
+  `;
+
+  card.addEventListener("click", () => {
+    const query = encodeURIComponent(title);
+    window.open(`https://www.google.com/search?q=${query}`, "_blank");
+  });
+
+  container.appendChild(card);
+})
     .catch(() => console.log("Error fetching city"));
 }
 
