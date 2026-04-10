@@ -1,84 +1,126 @@
-# 🌍 Smart Country Explorer
+# 🌍 Country Explorer
 
-## 📌 Project Description
-Smart Country Explorer is a web application that allows users to explore detailed information about countries across the world. The application enables users to search, filter, and sort countries based on different parameters, providing an interactive and user-friendly experience.
-
----
-
-## 🎯 Purpose
-The purpose of this project is to demonstrate:
-- JavaScript fundamentals
-- API integration using fetch()
-- Use of array higher-order functions
-- UI development using HTML and CSS
+A modern web application to explore countries and their cities with interactive UI, real-time data, and smart filtering.
 
 ---
 
-## 🌐 API Used
-This project uses the **REST Countries API** to fetch country data.
+## 🚀 Features
 
-🔗 API Endpoint:  
-https://restcountries.com/v3.1/all
+### 🌎 Countries
+- Search countries by name
+- Filter by region (Asia, Europe, etc.)
+- Sort by:
+  - Population 📊
+  - Area 🌐
+- View detailed country info:
+  - Flag
+  - Capital
+  - Languages
+  - Population
+  - Area
+
+### 🏙️ Cities
+- Click on any country to view its cities
+- Displays random 30–40 cities
+- Fetches real-time data from Wikipedia
+- Click a city → opens Google search 🔍
+
+### ❤️ Favorites
+- Add countries & cities to favorites
+- Stored using localStorage
+- View all favorites in one place
+
+### 🎨 UI Features
+- Clean card-based layout
+- Hover effects & animations
+- Fallback UI for missing images 🌍
+- Light/Dark mode toggle 🌗
 
 ---
 
-## ✨ Features
-- 🔍 Search countries by name
-- 🎯 Filter countries by region and population
-- 🔃 Sort countries by population and area
-- 📄 View detailed information of each country
-- ❤️ Add countries to favorites (planned feature)
-- 🌙 Dark mode (planned feature)
+## 🛠️ Tech Stack
 
----
-
-## 🛠️ Technologies Used
 - HTML
 - CSS
-- JavaScript (ES6)
-- Fetch API
+- JavaScript (Vanilla JS)
+- REST APIs:
+  - 🌍 REST Countries API
+  - 🏙️ CountriesNow API
+  - 📚 Wikipedia API
 
 ---
 
-## 🧠 Concepts Covered
-- API integration using fetch()
-- Array methods:
-  - map()
-  - filter()
-  - sort()
-  - find()
-- DOM manipulation
-- Event handling
-- Responsive design
+## ⚙️ How It Works
+
+1. Fetches all countries from API
+2. Applies:
+   - Search → `filter()`
+   - Region filter → `filter()`
+   - Sorting → `sort()`
+3. On click:
+   - Navigates to cities page
+4. Cities page:
+   - Fetch cities list
+   - Get details from Wikipedia
+   - Filter invalid results
 
 ---
 
-## ▶️ How to Run the Project
+## 📂 Project Structure
+Country-Explorer/
+│── index.html # Countries page
+│── index2.html # Cities page
+│── style.css # Styling
+│── script.js # Countries logic
+│── script2.js # Cities logic
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/smart-country-explorer.git
-   ```
-
-2. Navigate to the project folder:
-   ```bash
-   cd smart-country-explorer
-   ```
-
-3. Open the project:
-   - Open `index.html` in your browser  
-   OR  
-   - Use Live Server in VS Code
 
 ---
 
-## 📌 Future Enhancements
-- Add country comparison feature
-- Improve UI with animations
-- Add charts for population data
-- Save user preferences using localStorage
+## 🧠 Key Concepts Used
+
+- Array Higher Order Functions:
+  - `filter()`
+  - `map()`
+  - `sort()`
+  - `find()`
+- DOM Manipulation
+- API Integration
+- Local Storage
+- Event Handling
+
+---
+
+## 💡 Challenges Solved
+
+- ❌ Invalid API results (e.g., "Force" instead of city)
+- ❌ Missing images → handled with fallback UI
+- ❌ Undefined data → sanitized before display
+- ❌ Performance with large datasets
+
+---
+
+## 🔥 Future Improvements
+
+- Pagination / Infinite Scroll
+- Better search suggestions
+- City detail modal instead of redirect
+- Improved animations
+- Deploy on Vercel / Netlify
+
+---
+
+## 🌐 Live Demo
+(https://smart-country-explorer.vercel.app/)
 
 ---
 
 ## 👩‍💻 Author
+
 Muskaan Ramrakhyani
+
+---
+
+## ⭐ If you like this project
+
+Give it a ⭐ on GitHub!
